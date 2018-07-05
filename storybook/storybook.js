@@ -1,13 +1,14 @@
-import { AppRegistry } from 'react-native'
-import { getStorybookUI, configure } from '@storybook/react-native'
+/* eslint-disable global-require */
+import { AppRegistry } from 'react-native';
+import { getStorybookUI, configure } from '@storybook/react-native';
 
 // import stories
 configure(() => {
-  require('../App/Components/Stories')
-}, module)
+  require('./components/Stories');
+}, module);
 
 // This assumes that storybook is running on the same host as your RN packager,
 // to set manually use, e.g. host: 'localhost' option
-const StorybookUI = getStorybookUI({ port: 7007, onDeviceUI: true })
-AppRegistry.registerComponent('jeMoneyum', () => StorybookUI)
-export default StorybookUI
+const StorybookUI = getStorybookUI({ port: 7007, onDeviceUI: true });
+AppRegistry.registerComponent('jeMoneyum', () => StorybookUI);
+export default StorybookUI;

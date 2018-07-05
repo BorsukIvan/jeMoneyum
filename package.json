@@ -17,9 +17,13 @@
     "android:devices": "$ANDROID_HOME/platform-tools/adb devices",
     "android:logcat": "$ANDROID_HOME/platform-tools/adb logcat *:S ReactNative:V ReactNativeJS:V",
     "android:shake": "$ANDROID_HOME/platform-tools/adb devices | grep '\\t' | awk '{print $1}' | sed 's/\\s//g' | xargs -I {} $ANDROID_HOME/platform-tools/adb -s {} shell input keyevent 82",
-    "storybook": "storybook start -p 7007"
+    "storybook": "storybook start -p 7007",
+    "lint:fix": "./node_modules/.bin/eslint -c .eslintrc App --fix",
+    "lint": "./node_modules/.bin/eslint -c .eslintrc App",
+    "start:android": "react-native run-android"
   },
   "dependencies": {
+    "@storybook/react-native": "^3.4.0",
     "apisauce": "^0.14.2",
     "format-json": "^1.0.3",
     "identity-obj-proxy": "^3.0.0",
@@ -27,9 +31,11 @@
     "prop-types": "^15.6.1",
     "querystringify": "1.0.0",
     "ramda": "^0.25.0",
+    "ramdasauce": "^2.1.0",
     "react": "16.3.1",
     "react-native": "0.55.1",
     "react-native-config": "^0.10.0",
+    "react-native-navigation": "^1.1.473",
     "react-navigation": "^1.5.11",
     "react-navigation-redux-helpers": "^1.0.4",
     "react-redux": "^5.0.6",
@@ -42,23 +48,26 @@
     "@storybook/addon-storyshots": "^3.4.0",
     "@storybook/addons": "^3.4.0",
     "@storybook/channels": "^3.4.0",
-    "@storybook/react-native": "^3.4.0",
     "babel-core": "6.26.0",
+    "babel-eslint": "^8.2.5",
     "babel-jest": "23.0.1",
-    "babel-plugin-ignite-ignore-reactotron": "^0.3.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react-native": "^3.0.2",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
+    "eslint": "4",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-react-native": "^3.2.1",
     "husky": "^0.14.3",
     "ignite-ir-boilerplate-andross": "^2.3.3",
     "jest": "23.1.0",
     "mockery": "^2.1.0",
     "react-dom": "16.3.0",
     "react-test-renderer": "16.3.1",
-    "reactotron-react-native": "^2.0.0-alpha.3",
-    "reactotron-redux": "^2.0.0-alpha.3",
-    "reactotron-redux-saga": "^2.0.0-alpha.3"
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.6"
   },
   "jest": {
     "testMatch": [
@@ -77,5 +86,20 @@
     ],
     "preset": "react-native"
   },
-  "config": {}
+  "config": {},
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "describe",
+      "test",
+      "jest",
+      "expect",
+      "fetch",
+      "navigator",
+      "__DEV__",
+      "XMLHttpRequest",
+      "FormData",
+      "React$Element"
+    ]
+  }
 }

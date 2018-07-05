@@ -1,24 +1,21 @@
+import rootData from '../Fixtures/root.json';
+import rateLimitData from '../Fixtures/rateLimit.json';
+import gantmanData from '../Fixtures/gantman.json';
+import skellockData from '../Fixtures/skellock.json';
+
+
 export default {
   // Functions return fixtures
-  getRoot: () => {
-    return {
-      ok: true,
-      data: require('../Fixtures/root.json')
-    }
-  },
-  getRate: () => {
-    return {
-      ok: true,
-      data: require('../Fixtures/rateLimit.json')
-    }
-  },
-  getUser: (username) => {
-    // This fixture only supports gantman or else returns skellock
-    const gantmanData = require('../Fixtures/gantman.json')
-    const skellockData = require('../Fixtures/skellock.json')
-    return {
-      ok: true,
-      data: username.toLowerCase() === 'gantman' ? gantmanData : skellockData
-    }
-  }
-}
+  getRoot: () => ({
+    ok: true,
+    data: rootData
+  }),
+  getRate: () => ({
+    ok: true,
+    data: rateLimitData
+  }),
+  getUser: username => ({
+    ok: true,
+    data: username.toLowerCase() === 'gantman' ? gantmanData : skellockData
+  })
+};

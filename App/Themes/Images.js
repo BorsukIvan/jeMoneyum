@@ -1,25 +1,26 @@
 // leave off @2x/@3x
-const images = {
-  logo: require('../Images/ir.png'),
-  clearLogo: require('../Images/top_logo.png'),
-  launch: require('../Images/launch-icon.png'),
-  ready: require('../Images/your-app.png'),
-  ignite: require('../Images/ignite_logo.png'),
-  igniteClear: require('../Images/ignite-logo-transparent.png'),
-  tileBg: require('../Images/tile_bg.png'),
-  background: require('../Images/BG.png'),
-  buttonBackground: require('../Images/button-bg.png'),
-  api: require('../Images/Icons/icon-api-testing.png'),
-  components: require('../Images/Icons/icon-components.png'),
-  deviceInfo: require('../Images/Icons/icon-device-information.png'),
-  faq: require('../Images/Icons/faq-icon.png'),
-  home: require('../Images/Icons/icon-home.png'),
-  theme: require('../Images/Icons/icon-theme.png'),
-  usageExamples: require('../Images/Icons/icon-usage-examples.png'),
-  chevronRight: require('../Images/Icons/chevron-right.png'),
-  hamburger: require('../Images/Icons/hamburger.png'),
-  backButton: require('../Images/Icons/back-button.png'),
-  closeButton: require('../Images/Icons/close-button.png')
-}
+import clearLogo from '../Images/top_logo.png';
+import logo from '../Images/ir.png';
+import ready from '../Images/your-app.png';
+import launch from '../Images/launch-icon.png';
+import ignite from '../Images/ignite_logo.png';
+import igniteClear from '../Images/ignite-logo-transparent.png';
+import tileBg from '../Images/tile_bg.png';
+import background from '../Images/BG.png';
+import faq from '../Images/Icons/faq-icon.png';
+import closeButton from '../Images/Icons/close-button.png';
 
-export default images
+const images = {
+  logo,
+  clearLogo,
+  launch,
+  ready,
+  ignite,
+  igniteClear,
+  tileBg,
+  background,
+  faq,
+  closeButton,
+};
+
+export default images;
